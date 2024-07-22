@@ -1,100 +1,103 @@
+
 class WordModel{
-  final int indexInDataBase;
+
+  final int indexAtDatabase;
   final String text;
   final bool isArabic;
   final int colorCode;
-  final List<String> arabicDescription;
-  final List<String> englishDescription;
-  final List<String> arabicExampl;
-  final List<String> englishExampl;
-  const WordModel({
-  required this.indexInDataBase,
-  required this.text,
-  required this.isArabic,
-  required this.colorCode, 
-  this.arabicDescription=const[],
-  this.englishDescription=const[],
-  this.arabicExampl=const[], 
-  this.englishExampl=const[]});
+  final List<String>arabicSimilarWords;
+  final List<String>englishSimilarWords;
+  final List<String>arabicExamples;
+  final List<String>englishExamples;
 
-  List<String>_listOfNewValue(bool isArab){
-        if(isArab){
-          return  List.from(arabicDescription);
-        }else{
-          return  List.from(englishDescription);
-    }
-  }
-  WordModel _objectAfterEdit(bool isArab,List<String> newDescription){
-     return WordModel(
-      indexInDataBase: indexInDataBase, 
+  const WordModel({
+    required this.indexAtDatabase,
+    required this.text,
+    required this.isArabic,
+    required this.colorCode,
+    this.arabicSimilarWords=const [],
+    this.englishSimilarWords=const [],
+    this.arabicExamples=const [],
+    this.englishExamples=const [],
+  });
+
+
+  WordModel decrementIndexAtDataBase(){
+    return WordModel(
+      indexAtDatabase: indexAtDatabase-1, 
       text: text, 
       isArabic: isArabic, 
       colorCode: colorCode,
-      arabicExampl: arabicExampl,
-      englishExampl: englishExampl,
-      arabicDescription: isArab?newDescription:arabicDescription,
-      englishDescription: !isArab?newDescription:englishDescription
-      );
+      arabicSimilarWords: arabicSimilarWords,
+      englishSimilarWords: englishSimilarWords,
+      arabicExamples: arabicExamples,
+      englishExamples: englishExamples,
+    );
   }
 
-  _newListValue(bool isArab){
-    if (isArab) {
-      return List.from(arabicExampl);
+  WordModel deleteExample(int indexAtExamples,bool isArabicExample){
+    List<String>newExamples=_intializeNewExamples(isArabicExample);
+    newExamples.removeAt(indexAtExamples);
+    return _getWordAfterCheckExamples(newExamples, isArabicExample);
+  }
+
+  WordModel addExample(String example,bool isArabicExample){
+    List<String>newExamples=_intializeNewExamples(isArabicExample);
+    newExamples.add(example);
+    return _getWordAfterCheckExamples(newExamples, isArabicExample);
+  }
+
+  WordModel deleteSimilarWord(int indexAtSimilarWord,bool isArabicSimilarWord){
+    List<String>newSimilarWords=_intializeNewSimilarWords(isArabicSimilarWord);
+    newSimilarWords.removeAt(indexAtSimilarWord);
+    return _getWordAfterCheckSimilarWords(newSimilarWords, isArabicSimilarWord);
+  }
+
+  WordModel addSimilarWord(String similarWord,bool isArabicSimilarWord){
+    List<String>newSimilarWords=_intializeNewSimilarWords(isArabicSimilarWord);
+    newSimilarWords.add(similarWord);
+    return _getWordAfterCheckSimilarWords(newSimilarWords, isArabicSimilarWord);
+  }
+
+  List<String> _intializeNewSimilarWords(bool isArabicSimilarWord){
+    if(isArabicSimilarWord){
+      return List.from(arabicSimilarWords);
     }else{
-      return List.from(englishExampl);
+      return List.from(englishSimilarWords);
     }
   }
 
-  WordModel _objectAfterEdit2(List<String> exemple,bool isArab){
-    return WordModel(indexInDataBase: indexInDataBase, 
-    text: text, 
-    isArabic: isArabic, 
-    colorCode: colorCode,
-    arabicExampl:isArab?exemple: arabicExampl,
-    englishExampl:!isArab?exemple: englishExampl,
-    arabicDescription: arabicDescription,
-    englishDescription: englishDescription
-    );
-  }
-
-
-
-  WordModel deleteDescription(int index,bool isArab){
-    List<String>newDescription=_listOfNewValue(isArab);
-
-    newDescription.removeAt(index);
-    return  _objectAfterEdit(isArab, newDescription);
-  }
-
-  WordModel addDescription(String desc,bool isArab){
-    List<String>newDescription=_listOfNewValue(isArab);
-   
-    newDescription.add(desc);
-    return _objectAfterEdit(isArab, newDescription);
-  }
-
-
-  WordModel addExampel(String desc,bool isArab){
-    List<String>newExample=_newListValue(isArab);
-    newExample.add(desc);
-    return _objectAfterEdit2(newExample, isArab);
-  }
-  WordModel deleteExampel(int index,bool isArab){
-    List<String>newExample=_newListValue(isArab);
-    newExample.removeAt(index);
-    return _objectAfterEdit2(newExample, isArab);
-  }
-
-  WordModel decrementIndexAtDB(){
+  WordModel _getWordAfterCheckSimilarWords(List<String>newSimilarWords,bool isArabicSimilarWord){
     return WordModel(
-    indexInDataBase: indexInDataBase-1, 
-    text: text, 
-    isArabic: isArabic, 
-    colorCode: colorCode,
-    arabicDescription: arabicDescription,
-    arabicExampl: arabicExampl,
-    englishDescription: englishDescription,
-    englishExampl: englishExampl
+      indexAtDatabase: indexAtDatabase, 
+      text: text, 
+      isArabic: isArabic, 
+      colorCode: colorCode,
+      arabicSimilarWords: isArabicSimilarWord ? newSimilarWords: arabicSimilarWords,
+      englishSimilarWords: !isArabicSimilarWord ? newSimilarWords: englishSimilarWords,
+      arabicExamples: arabicExamples,
+      englishExamples: englishExamples,
     );
   }
+
+  List<String>_intializeNewExamples(bool isArabicExample){
+    if(isArabicExample){
+      return List.from(arabicExamples);
+    }
+    return List.from(englishExamples);
+  }
+
+  WordModel _getWordAfterCheckExamples(List<String>newExamples,bool isArabicExample){
+    return WordModel(
+      indexAtDatabase: indexAtDatabase, 
+      text: text, 
+      isArabic: isArabic, 
+      colorCode: colorCode,
+      arabicSimilarWords: arabicSimilarWords,
+      englishSimilarWords: englishSimilarWords,
+      arabicExamples: isArabicExample?newExamples:arabicExamples,
+      englishExamples: !isArabicExample?newExamples:englishExamples,
+      );
+  }
+
 }
