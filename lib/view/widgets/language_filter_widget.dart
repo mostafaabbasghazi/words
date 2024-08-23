@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/controllers/read_data_cubit/read_data_cubit_states.dart';
 import '/view/styles/color_manager.dart';
@@ -13,9 +14,9 @@ class LanguageFilterWidget extends StatelessWidget {
       builder: (context, state) {
         return Text(
           _mapLanguageFilterEnumToString(ReadDataCubit.get(context).languageFilter),
-          style: const TextStyle(
+          style:  TextStyle(
             color: ColorManager.white,
-            fontSize: 21,
+            fontSize: 21.sp,
             fontWeight: FontWeight.bold
           ),
         );

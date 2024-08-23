@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/model/word_model.dart';
 import '/view/screens/word_details_screen.dart';
@@ -16,7 +17,7 @@ class WordItemWidget extends StatelessWidget {
           MaterialPageRoute(builder: ((context) => WordDetailsScreen(wordModel: wordModel)))
         ).then((value) async{
           Future.delayed(
-            const Duration(seconds: 1)
+            const Duration(seconds: 2)
           ).then((value) {
             ReadDataCubit.get(context).getWords();
           });
@@ -28,9 +29,9 @@ class WordItemWidget extends StatelessWidget {
         child: Center(
           child: Text(
             wordModel.text,
-            style:const TextStyle(
+            style: TextStyle(
               color: ColorManager.white,
-              fontSize: 24,
+              fontSize: 24.sp,
               fontWeight: FontWeight.bold
             ),
           ),

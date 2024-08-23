@@ -14,3 +14,8 @@ class ReadDataCubitFailedState extends ReadDataCubitStates{
   final String message;
   ReadDataCubitFailedState({required this.message});
 }
+
+class ReadDataCubitSearchState extends ReadDataCubitStates{
+  final List<WordModel>wordsSearch;
+  ReadDataCubitSearchState({required this.wordsSearch});
+}

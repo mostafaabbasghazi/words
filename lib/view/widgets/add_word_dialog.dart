@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/view/styles/color_manager.dart';
 
@@ -46,13 +47,13 @@ class _AddWordDialogState extends State<AddWordDialog> {
                     colorCode: WriteDataCubit.get(context).colorCode,
                     arabicIsSelected: WriteDataCubit.get(context).isArabic,
                   ),
-                  const SizedBox(height: 8,),
+                   SizedBox(height: 8.h,),
 
                   ColorsWidget(activeColorCode: WriteDataCubit.get(context).colorCode),
-                  const SizedBox(height: 10,),
+                   SizedBox(height: 10.h,),
 
                   CustomForm(formKey: formKey, label: "New Word"),
-                  const SizedBox(height: 15,),
+                   SizedBox(height: 15.h,),
 
                   DoneButton(
                     colorCode: WriteDataCubit.get(context).colorCode, 

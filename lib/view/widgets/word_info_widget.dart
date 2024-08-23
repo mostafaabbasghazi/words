@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/view/styles/color_manager.dart';
 
 class WordInfoWidget extends StatelessWidget {
@@ -16,7 +17,7 @@ class WordInfoWidget extends StatelessWidget {
       child: Row(
         children: [
           _getIsArabicWidget(),
-          const SizedBox(width: 10,),
+           SizedBox(width: 10.w,),
           Expanded(child: _getTextWidget()),
           if(onPressed!=null)
           IconButton(
@@ -31,9 +32,9 @@ class WordInfoWidget extends StatelessWidget {
   Text _getTextWidget() {
     return Text(
       text,
-      style:const TextStyle(
+      style: TextStyle(
         color: ColorManager.black,
-        fontSize: 20,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold
       ),
     );

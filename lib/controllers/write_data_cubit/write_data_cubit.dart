@@ -72,7 +72,10 @@ class WriteDataCubit extends Cubit<WriteDataCubitStates>{
   void addWord(){
     _tryAndCatchBlock(() {
       List<WordModel>words=_getWordsFromDataBase();
-      words.add(WordModel(indexAtDatabase: words.length, text: text, isArabic: isArabic, colorCode: colorCode));
+      words.add(WordModel(
+        indexAtDatabase: words.length, 
+        text: text, isArabic: isArabic, 
+        colorCode: colorCode));
       box.put(HiveConstants.wordsList, words);
     }, 
     "We Have problems when we add word,Please try again"

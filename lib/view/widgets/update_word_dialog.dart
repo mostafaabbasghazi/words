@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/controllers/write_data_cubit/write_data_cubit.dart';
 import '/controllers/write_data_cubit/write_data_cubit_states.dart';
@@ -44,12 +45,12 @@ class _UpdateWordDialogState extends State<UpdateWordDialog> {
                   arabicIsSelected: WriteDataCubit.get(context).isArabic, 
                   colorCode: widget.colorCode,
                 ),
-                const SizedBox(height: 20,),
+                 SizedBox(height: 20.h,),
                 CustomForm(
                   formKey: _formKey, 
                   label: widget.isExample?"New Example":"New Similar Word",
                 ),
-                const SizedBox(height: 20,),
+                 SizedBox(height: 20.h,),
                 DoneButton(
                   colorCode: widget.colorCode, 
                   onTap: (){

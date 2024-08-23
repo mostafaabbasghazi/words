@@ -40,6 +40,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
+  flutter_native_splash: ^2.4.1
+  flutter_launcher_icons: ^0.13.1
+
+  
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +60,30 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logo.png
+  
+  color_dark: "#121212"
+  image_dark: assets/logo.png
+  
+  android_12:
+    image: assets/logo.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/logo.png
+    icon_background_color_dark: "#121212"
+
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/logo.jpg"
+ 
+ 
+  windows:
+    generate: true
+    image_path: "assets/logo.jpg"
+    icon_size: 48 # min:48, max:256, default: 48
 flutter:
 
   # The following line ensures that the Material Icons font is
@@ -64,8 +92,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

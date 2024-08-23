@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/controllers/read_data_cubit/read_data_cubit_states.dart';
 import '/view/styles/color_manager.dart';
@@ -20,15 +21,15 @@ class FilterDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _getLabelText("Language"),
-                const SizedBox(height: 10,),
+                 SizedBox(height: 10.h,),
                 _getLanguageFilter(context),
-                const SizedBox(height: 15,),
+                 SizedBox(height: 15.h,),
                 _getLabelText("Sorted By"),
-                const SizedBox(height: 10,),
+                 SizedBox(height: 10.h,),
                 _getSortedByFilter(context),
-                const SizedBox(height: 15,),
+                 SizedBox(height: 15.h,),
                 _getLabelText("Sorting Type"),
-                const SizedBox(height: 10,),
+                 SizedBox(height: 10.h,),
                 _getSortingTypeFilter(context),
                 
               ],
@@ -46,7 +47,7 @@ class FilterDialog extends StatelessWidget {
         ()=>ReadDataCubit.get(context).updateSortedBy(SortedBy.time),
         ()=>ReadDataCubit.get(context).updateSortedBy(SortedBy.wordLength),
       ], 
-      conditionsOfActivation: [
+      conditionsOfActivation:[
         ReadDataCubit.get(context).sortedBy==SortedBy.time,
         ReadDataCubit.get(context).sortedBy==SortedBy.wordLength,
       ],
@@ -94,7 +95,7 @@ class FilterDialog extends StatelessWidget {
         InkWell(
           onTap: onTaps[i],
           child: Container(
-            height: 40,
+            height: 40.h,
             padding:const EdgeInsets.all(10),
             margin:const EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
@@ -119,10 +120,10 @@ class FilterDialog extends StatelessWidget {
   Widget _getLabelText(String text){
     return Text(
       text,
-      style:const TextStyle(
+      style: TextStyle(
         color: ColorManager.white,
         fontWeight: FontWeight.bold,
-        fontSize: 18,
+        fontSize: 18.sp,
       ),
     );
   }

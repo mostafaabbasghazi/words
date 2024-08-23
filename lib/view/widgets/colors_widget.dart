@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/write_data_cubit/write_data_cubit.dart';
 import '/view/styles/color_manager.dart';
 
@@ -26,7 +27,7 @@ class ColorsWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: _colorCodes.length,
         itemBuilder: (context,index)=>_getItemDesign(index,context), 
-        separatorBuilder: (context,index)=>const SizedBox(width: 7,), 
+        separatorBuilder: (context,index)=> SizedBox(width: 7.w,), 
       ),
     );
   }
@@ -35,11 +36,11 @@ class ColorsWidget extends StatelessWidget {
     return InkWell(
       onTap: () => WriteDataCubit.get(context).updateColorCode(_colorCodes[index]),
       child: Container(
-        height: 35,
-        width: 35,
+        height: 35.h,
+        width: 35.w,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border:activeColorCode==_colorCodes[index]? Border.all(color: ColorManager.white,width: 2):null,
+          border:activeColorCode==_colorCodes[index]? Border.all(color: ColorManager.white,width: 2.w):null,
           color: Color(_colorCodes[index]),
         ),
         child: activeColorCode==_colorCodes[index]?const Center(

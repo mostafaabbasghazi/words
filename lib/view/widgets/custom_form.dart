@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/write_data_cubit/write_data_cubit.dart';
 import '/view/styles/color_manager.dart';
 
@@ -72,19 +73,19 @@ class _CustomFormState extends State<CustomForm> {
         label: Text(widget.label,style:const TextStyle(color: ColorManager.white),),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
-          borderSide:const BorderSide(color: ColorManager.white,width: 2),
+          borderSide: BorderSide(color: ColorManager.white,width: 2.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
-          borderSide:const BorderSide(color: ColorManager.white,width: 2),
+          borderSide: BorderSide(color: ColorManager.white,width: 2.w),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
-          borderSide:const BorderSide(color: ColorManager.red,width: 2),
+          borderSide: BorderSide(color: ColorManager.red,width: 2.w),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
-          borderSide:const BorderSide(color: ColorManager.red,width: 2),
+          borderSide: BorderSide(color: ColorManager.red,width: 2.w),
         ),
       );
   }

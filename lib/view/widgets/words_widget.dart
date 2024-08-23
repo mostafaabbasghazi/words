@@ -34,8 +34,8 @@ class WordsWidget extends StatelessWidget {
       itemCount: words.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
+        crossAxisSpacing: 7,
+        mainAxisSpacing: 7,
         childAspectRatio: 2/1.5,
       ), 
       itemBuilder: ((context, index) {
@@ -46,14 +46,14 @@ class WordsWidget extends StatelessWidget {
 
   Widget _getEmptyWordsWigdet(){
     return const ExceptionWidget(
-      iconData: Icons.list_rounded, 
+      iconData: Icons.list_rounded,
       message: "Empty Words List",
     );
   }
 
   Widget _getFailedWidget(String message){
     return  ExceptionWidget(
-      iconData: Icons.error, 
+      iconData: Icons.error,
       message: message,
     );
   }

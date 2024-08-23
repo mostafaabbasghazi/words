@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/view/styles/color_manager.dart';
 
 class UpdateWordButton extends StatelessWidget {
@@ -10,8 +11,8 @@ class UpdateWordButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 60,
-        height: 35,
+        width: 60.w,
+        height: 35.h,
         decoration: _getBoxDecoration(),
         child:const Icon(
           Icons.add,

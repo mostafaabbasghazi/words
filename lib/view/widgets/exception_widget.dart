@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/view/styles/color_manager.dart';
 
 class ExceptionWidget extends StatelessWidget {
@@ -15,13 +16,13 @@ class ExceptionWidget extends StatelessWidget {
           color: ColorManager.white,
           size: 60,
         ),
-        const SizedBox(height: 20,),
+         SizedBox(height: 20.h,),
         Text(
           message,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style:  TextStyle(
             color: ColorManager.white,
-            fontSize: 24
+            fontSize: 24.sp
           ),
         )
       ],

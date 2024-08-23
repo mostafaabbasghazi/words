@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/controllers/read_data_cubit/read_data_cubit.dart';
 import '/controllers/read_data_cubit/read_data_cubit_states.dart';
 import '/controllers/write_data_cubit/write_data_cubit.dart';
@@ -54,13 +55,13 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
       padding:const EdgeInsets.symmetric(horizontal: 10),
       children: [
         _getLabelText("Word"),
-        const SizedBox(height: 5,),
+         SizedBox(height: 5.h,),
         WordInfoWidget(
           color:Color( _wordModel.colorCode),
           text: _wordModel.text,
           isArabic: _wordModel.isArabic,
         ),
-        const SizedBox(height: 20,),
+         SizedBox(height: 20.h,),
         Row(
           children: [
             _getLabelText("Similar Words"),
@@ -75,7 +76,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
         for(int i=0;i<_wordModel.arabicSimilarWords.length;i++)
         WordInfoWidget(
           color: Color(_wordModel.colorCode), 
@@ -91,7 +92,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
           onPressed: ()=>_deleteEnglishSimilarWord(i),
         ),
 
-        const SizedBox(height: 20,),
+         SizedBox(height: 20.h,),
         Row(
           children: [
             _getLabelText("Examples"),
@@ -106,7 +107,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
         for(int i=0;i<_wordModel.arabicExamples.length;i++)
         WordInfoWidget(
           color: Color(_wordModel.colorCode), 
@@ -168,7 +169,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
     label,
     style: TextStyle(
       color: Color(_wordModel.colorCode),
-      fontSize: 21,
+      fontSize: 21.sp,
       fontWeight: FontWeight.bold,
     ),
   );
